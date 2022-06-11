@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Counter</h1>
+    <p>count : {{session['count']}}</p>
+    <p>visits: {{session['visit']}}</p>
+    <form action="/a">
+        
+        <input type="submit" name="increase" value="Click to increase count by {{session['increment']}}" />
+        
+        <!-- <input type="text" name="increase"  />
+        <input type="submit" value="change increment"/> -->
+    </form>
+    <form action="/destroy" >
+
+        <button> Reset</button>
+    </form>
+    <form action="/increment" method="post">
+        <input type="number" name="increase" min="1" />
+        <input type="submit" value="change increment"/>
+    </form>
+</body>
+</html>

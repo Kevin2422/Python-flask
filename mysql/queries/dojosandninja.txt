@@ -1,0 +1,23 @@
+
+INSERT INTO `dojos_and_ninjas_schema`.`dojo` (`dojos`, `name`) VALUES ('1', 'dojo1');
+INSERT INTO `dojos_and_ninjas_schema`.`dojo` (`dojos`, `name`) VALUES ('2', 'dojo2');
+INSERT INTO `dojos_and_ninjas_schema`.`dojo` (`dojos`, `name`) VALUES ('3', 'dojo3');
+UPDATE `dojos_and_ninjas_schema`.`dojo` SET `dojos` = NULL, `name` = NULL where (`dojos` = '1');
+UPDATE `dojos_and_ninjas_schema`.`dojo` SET `dojos` = NULL, `name` = NULL where (`dojos` = '2');
+UPDATE `dojos_and_ninjas_schema`.`dojo` SET `dojos` = NULL, `name` = NULL where (`dojos` = '3');
+INSERT INTO `dojos_and_ninjas_schema`.`dojo` (`dojos`, `name`) VALUES ('1', 'dojo1');
+INSERT INTO `dojos_and_ninjas_schema`.`dojo` (`dojos`, `name`) VALUES ('2', 'dojo2');
+INSERT INTO `dojos_and_ninjas_schema`.`dojo` (`dojos`, `name`) VALUES ('3', 'dojo3');
+INSERT INTO `dojos_and_ninjas_schema`.`ninja` (`first_name`, `dojo_id`) VALUES ('joe', '1');
+INSERT INTO `dojos_and_ninjas_schema`.`ninja` (`first_name`, `dojo_id`) VALUES ('sue', '1');
+INSERT INTO `dojos_and_ninjas_schema`.`ninja` (`first_name`, `dojo_id`) VALUES ('bob', '1');
+INSERT INTO `dojos_and_ninjas_schema`.`ninja` (`first_name`, `dojo_id`) VALUES ('jeff', '2');
+INSERT INTO `dojos_and_ninjas_schema`.`ninja` (`first_name`, `dojo_id`) VALUES ('pubert', '2');
+INSERT INTO `dojos_and_ninjas_schema`.`ninja` (`first_name`, `dojo_id`) VALUES ('lolly', '2');
+INSERT INTO `dojos_and_ninjas_schema`.`ninja` (`first_name`, `dojo_id`) VALUES ('jim', '3');
+INSERT INTO `dojos_and_ninjas_schema`.`ninja` (`first_name`, `dojo_id`) VALUES ('mabel', '3');
+INSERT INTO `dojos_and_ninjas_schema`.`ninja` (`first_name`, `dojo_id`) VALUES ('ally', '3');
+select * from ninja where dojo_id = 1
+select * from ninja where dojo_id = 3
+select dojo_id from ninja where idninja = 9
+

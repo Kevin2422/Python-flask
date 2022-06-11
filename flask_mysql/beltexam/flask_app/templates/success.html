@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome {{name}}  </h1>
+
+    {%for x in paintings%}
+        
+    <p><a href="/view/{{x.id}}">{{x.title}}</a> by {{x.user.first_name}} {{x.user.last_name}}
+        {%if x.user_id == id%}
+            
+            <a href="/edit/{{x.id}}">Edit</a> <a href="/delete/{{x.id}}">delete</a>
+        {%endif%}
+        
+    </p>
+    {%endfor%}
+
+    <a href="/createrender/">Add painting</a>
+
+    </div>
+    <a href="/logout">Logout</a>
+</body>
+</html>

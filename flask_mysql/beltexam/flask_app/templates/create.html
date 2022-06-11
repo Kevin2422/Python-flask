@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}  
+    <div class="alert alert-danger" role="alert">
+        <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+    </div>        <!-- loop through the messages -->
+       
+            {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <h1>Add a painting</h1>
+    <form action="/addpainting" method="post">
+        <input type="hidden" name="user_id" value="{{id}}">
+
+        <div>
+
+            <label for="title">Title</label>
+            <input type="text" name="title">
+        </div>
+        <div>
+
+            <label for="description">description</label>
+            <textarea name="description" id="" cols="30" rows="10"></textarea>
+        </div>
+        <label for="price">Price</label>
+        <input type="number" name="price" >
+        <input type="submit">
+
+    </form>
+    <a href="/success/{{id}}">Dashboard</a>
+</body>
+</html>

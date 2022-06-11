@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> 
+    <title>Document</title>
+</head>
+<body>
+    <h1>checkerboard</h1>
+    <table>
+        
+        {% for i in range(0,num): %}
+        <tr>
+            {% for i in range(4): %}
+            <td class="color4">
+            </td>
+            <td class="color3">
+            </td>
+            
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for i in range(4): %}
+            <td class="color3">
+            </td>
+            <td class="color4">
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <table>
+       {% for i in range(num): %}
+        <tr>
+            {% for j in range(nums): %}
+            {%if (i+j)%2 ==0 %}
+            <td class="color{{ (i+j)%2+1 }} " style="background-color: {{color1}};""   ></td>
+            {%elif (i+j)%2 ==1 %}
+            <td class="color{{ (i+j)%2+1 }} " style="background-color: {{color2}};""   ></td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+    <table>
+    
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Date created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+            <tbody>
+                {%for one_user in users%}
+                <tr>
+                    <td>{{one_user.id}}</td>
+                    <td>{{one_user.first_name}}</td>
+                    <td>{{one_user.last_name}}</td>
+                    <td>{{one_user.email}}</td>
+                    <td>{{one_user.created_at}}</td>
+                    <td>
+                        <form action="/show" method="post">
+                            <input type="hidden" name="first_name" value="{{one_user.first_name}}">
+                            <input type="hidden" name="last_name" value="{{one_user.last_name}}">
+                            <input type="hidden" name="email" value="{{one_user.email}}">
+                            <input type="hidden" name="ide" value="{{one_user.id}}">
+                            <input type="submit" value="show">
+                        </form>
+                        <a href="/user/edit/{{one_user.id}}">edit</a>
+                     
+                        <a href="/user/delete/{{one_user.id}}">delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/create"> create new user</a>
+</body>
+</html>

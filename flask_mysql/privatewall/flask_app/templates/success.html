@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome {{name}}</h1>
+
+    <div>
+        <h1> {{messages|length}} messages for you</h1>
+        {%for x in messages%}
+       <p>{{x['name']}} sent: {{x.content}}</p>
+       <form action="/delete" method="post">
+<input type="hidden" name="id" value="{{x.user_id}}">
+<input type="hidden" name="date_sent" value="{{x.date_sent}}">
+<input type="submit" value="delete">
+       </form>
+       
+       {%endfor%}
+
+    </div>
+    <div>
+        <h1>send messages</h1>
+        
+    {%for x in others%}
+    <p>Send a message to {{x['first_name']}}</p>
+    <form action="/send" method="post">
+        
+        <input type="hidden" name="id" value="{{x.id}}">
+        <input type="hidden" name = 'how' value="{{name}}">
+        <input type="text" name="message">
+        <input type="submit">
+    </form>
+    {%endfor%}
+
+    </div>
+    <a href="/logout">Logout</a>
+</body>
+</html>

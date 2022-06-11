@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Add ninja</h1>
+    <form action="/create/ninja" method="post">
+        
+        <select name="dojo_id">
+        <!-- Need to create an option list for the user to select a restaurant. -->
+        <!-- Note that we are passing the restaurant id into the value -->
+        {% for dojo in dojos %}
+        <option value='{{dojo.id}}''>{{dojo.name}}</option>
+        {% endfor %}
+        </select>
+        <label for="fname">First name</label>
+        <input type="text" name="fname">
+        <label for="lname">Last name</label>
+        <input type="text" name="lname">
+        <label for="age">age</label>
+        <input type="number" name="age">
+        <input type="submit">
+    </form>
+    
+</body>
+</html>

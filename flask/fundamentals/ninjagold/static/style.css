@@ -1,0 +1,31 @@
+.container{
+    height: 400px;
+    width: 80%;
+    
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.box{
+    height: 300px;
+    width: 20%;
+    border: 2px solid black;
+
+}
+
+.activitybox{
+    height: auto;
+    width: 80%;
+    margin: 0px auto;
+  
+    border: 2px solid black;
+}
+
+.greentext{
+    color: green;
+}
+
+.redtext{
+    color: red;
+}

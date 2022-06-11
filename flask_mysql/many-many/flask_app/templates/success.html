@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<form action="/getbook" method="post">
+    <label for="name">Name</label>
+    <input type="text" name="name" >
+    <label for="author">Author</label>
+    <input type="text" name="author">
+    <input type="submit">
+</form>
+<body>
+    <h1>Welcome {{name}}</h1>
+<h1>Books</h1>
+{%for x in books%}
+<p>Name: {{x.name}}</p>
+<p>Author: {{x.author}}</p>
+{%endfor%}
+
+<h1>{{name}}'s favorites</h1>
+{%for x in user.books%}
+<p>{{x.name}}</p>
+<p>{{x.author}}</p>
+{%endfor%}
+
+<h1>Books with users</h1>
+{%for x in book.users%}
+<p>{{x.first_name}}</p>
+<p>{{x.last_name}}</p>
+{%endfor%}
+
+    </div>
+    <a href="/logout">Logout</a>
+</body>
+</html>
